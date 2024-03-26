@@ -17,20 +17,20 @@ Once you have implemented these components, you will test our your model in 3 se
 
 ### Important Notes
 * Follow `setup.sh` to properly setup the environment and install dependencies.
-* There is a detailed description of the code structure in [structure.md](./structure.md), including a description of which parts you will need to implement.
+* There is a detailed description of the code structure in [structure.md](src/structure.md), including a description of which parts you will need to implement.
 * You are only allowed to use libraries that are installed by `setup.sh`, no other external libraries are allowed (e.g., `transformers`).
 * We will run your code with commands below (under "Reference outputs/accuracies"), so make sure that whatever your best results are reproducible using these commands.
     * Do not change any of the existing command options (including defaults) or add any new required parameters
 
 ## Reference outputs/accuracies: 
 
-*Text Continuation* (`python run_llama.py --option generate`)
+*Text Continuation* (`python src/run_llama.py --option generate`)
 You should see continuations of the sentence `I have wanted to see this thriller for a while, and it didn't disappoint. Keanu Reeves, playing the hero John Wick, is...`. We will generate two continuations - one with temperature 0.0 (which should have a reasonably coherent, if unusual, completion) and one with temperature 1.0 (which is likely to be logically inconsistent and may contain some coherence or grammar errors).
 
 *Zero Shot Prompting*
 Zero-Shot Prompting for SST:
 
-`python run_llama.py --option prompt --batch_size 10  --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt --label-names data/sst-label-mapping.json --dev_out sst-dev-prompting-output.txt --test_out sst-test-prompting-output.txt [--use_gpu]`
+`python src/run_llama.py --option prompt --batch_size 10  --train src/data/sst-train.txt --dev src/data/sst-dev.txt --test src/data/sst-test.txt --label-names src/data/sst-label-mapping.json --dev_out sst-dev-prompting-output.txt --test_out sst-test-prompting-output.txt`
 
 Prompting for SST:
 Dev Accuracy: 0.213 (0.000)
@@ -38,7 +38,7 @@ Test Accuracy: 0.224 (0.000)
 
 Zero-Shot Prompting for CFIMDB:
 
-`python run_llama.py --option prompt --batch_size 10  --train data/cfimdb-train.txt --dev data/cfimdb-dev.txt --test data/cfimdb-test.txt --label-names data/cfimdb-label-mapping.json --dev_out cfimdb-dev-prompting-output.txt --test_out cfimdb-test-prompting-output.txt [--use_gpu]`
+`python src/run_llama.py --option prompt --batch_size 10  --train src/data/cfimdb-train.txt --dev src/data/cfimdb-dev.txt --test src/data/cfimdb-test.txt --label-names src/data/cfimdb-label-mapping.json --dev_out cfimdb-dev-prompting-output.txt --test_out cfimdb-test-prompting-output.txt`
 
 Prompting for CFIMDB:
 Dev Accuracy: 0.498 (0.000)
@@ -46,7 +46,7 @@ Test Accuracy: -
 
 *Classification Finetuning*
 
-`python run_llama.py --option finetune --epochs 5 --lr 2e-5 --batch_size 80  --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt --label-names data/sst-label-mapping.json --dev_out sst-dev-finetuning-output.txt --test_out sst-test-finetuning-output.txt [--use_gpu]`
+`python run_llama.py --option finetune --epochs 5 --lr 2e-5 --batch_size 80  --train src/data/sst-train.txt --dev src/data/sst-dev.txt --test src/data/sst-test.txt --label-names src/data/sst-label-mapping.json --dev_out sst-dev-finetuning-output.txt --test_out sst-test-finetuning-output.txt`
 
 Finetuning for SST:
 Dev Accuracy: 0.414 (0.014)
