@@ -9,7 +9,7 @@ from typing import List
 
 from sentencepiece import SentencePieceProcessor
 
-TOKENIZER_MODEL = "tokenizer.model" # the llama sentencepiece tokenizer model
+TOKENIZER_MODEL = "src/tokenizer.model" # the llama sentencepiece tokenizer model
 
 class Tokenizer:
     def __init__(self, max_len=None, tokenizer_model=None):
