@@ -52,8 +52,6 @@ def apply_rotary_emb(
     # Then, combine these trigonometric values with the tensors query_real, query_imag,
     # key_real, and key_imag.
 
-    # raise NotImplementedError
-
     query_out = torch.zeros_like(query)
     query_out[..., ::2] = query_real * cos_thetas - query_imag * sin_thetas
     query_out[..., 1::2] = query_real * sin_thetas + query_imag * cos_thetas
@@ -61,5 +59,6 @@ def apply_rotary_emb(
     key_out = torch.zeros_like(key)
     key_out[..., ::2] = key_real * cos_thetas - key_imag * sin_thetas
     key_out[..., 1::2] = key_real * sin_thetas + key_imag * cos_thetas
+
     # Return the rotary position embeddings for the query and key tensors
     return query_out, key_out
