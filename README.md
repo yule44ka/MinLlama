@@ -6,4 +6,3 @@
 
 ## Important Notes
 * Follow `setup.sh` to properly setup the environment and install dependencies.
-* There is a detailed description of the code structure in [structure.md](./structure.md).
