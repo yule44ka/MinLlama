@@ -334,7 +334,7 @@ if __name__ == "__main__":
 	if args.option == "generate":
 		# Step 1
 		# Complete this sentence to test your implementation!
-		prefix = "Will artificial intelligence and robots take over the earth and enslave all of humanity?"
+		prefix = "I have wanted to see this thriller for a while, and it didn't disappoint. Keanu Reeves, playing the hero John Wick, is"
 		generate_sentence(args, prefix, args.generated_sentence_low_temp_out, max_new_tokens=75, temperature=0.0)
 		generate_sentence(args, prefix, args.generated_sentence_high_temp_out, max_new_tokens=75, temperature=1.0)
 	elif args.option == "prompt":
